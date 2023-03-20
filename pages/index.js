@@ -1,11 +1,11 @@
 import Heading from "../components/Heading";
-import Ideasform from "../components/Ideasform";
+import IdeasForm from "../components/IdeasForm";
 
 export default function Home() {
   return (
     <main>
       <Heading>Ideas-App</Heading>
-      <Ideasform />
+      <IdeasForm />
     </main>
   );
 }
