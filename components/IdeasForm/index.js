@@ -3,10 +3,24 @@ import React from "react";
 export default function Ideasform({}) {
   return (
     <>
-      <label htmlFor="idea">Fixe Idee:</label>
-      <input name="idea" type="text" id="idea" placeholder="Hier tippen..." />
-      <button type="save">speichern</button>
-      <button type="delete">verwerfen</button>
+      <form>
+        <label htmlFor="idea">Fixe Idee:</label>
+        <textarea
+          name="idea"
+          type="textarea"
+          id="idea"
+          placeholder="Hier tippen..."
+          required
+          minlength="5"
+          maxlength="1000"
+        />
+        <button type="submit" value="Submit">
+          speichern
+        </button>
+        <button type="reset" value="Reset">
+          verwerfen
+        </button>
+      </form>
     </>
   );
 }
