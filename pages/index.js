@@ -4,7 +4,7 @@ import Ideasform from "../components/Ideasform";
 export default function Home() {
   return (
     <main>
-      <Heading>🔱Atlantis Capstone Template🔱</Heading>
+      <Heading>Ideas-App</Heading>
       <Ideasform />
     </main>
   );
