@@ -1,9 +1,11 @@
 import Heading from "../components/Heading";
+import IdeasForm from "../components/IdeasForm";
 
 export default function Home() {
   return (
     <main>
-      <Heading>🔱Atlantis Capstone Template🔱</Heading>
+      <Heading>Ideas-App</Heading>
+      <IdeasForm />
     </main>
   );
 }
