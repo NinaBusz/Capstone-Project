@@ -11,8 +11,10 @@ export default function Ideasform({ handleAddIdea }) {
     }
   };
   const handleSaveIdea = () => {
-    handleAddIdea(newidea);
-    setNewIdea("");
+    if (newidea.length > 0) {
+      handleAddIdea(newidea);
+      setNewIdea("");
+    }
   };
 
   const handleDropIdea = () => {
@@ -37,10 +39,20 @@ export default function Ideasform({ handleAddIdea }) {
             {characterLimit - newidea.length} von 500 Zeichen übrig.
           </small>
         </div>
-        <button type="submit" value="Submit" onClick={handleSaveIdea}>
+        <button
+          className="primaryButton"
+          type="submit"
+          value="Submit"
+          onClick={handleSaveIdea}
+        >
           speichern
         </button>
-        <button type="reset" value="Reset" onClick={handleDropIdea}>
+        <button
+          className="primaryButton"
+          type="reset"
+          value="Reset"
+          onClick={handleDropIdea}
+        >
           verwerfen
         </button>
       </form>

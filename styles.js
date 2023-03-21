@@ -24,8 +24,9 @@ export default createGlobalStyle`
     width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  height: 50vw;
+  height: 200px;
   box-sizing: border-box;
+border-radius: 10px;
   }
   .newIdeaForm__input:focus, input:focus{
     outline: none;
@@ -38,5 +39,6 @@ margin-top: 10px;}
   small {
     font-size: 0.6rem;
   }
-  button {padding: 5px 10px;}
+  .primaryButton {padding: 5px 10px;
+  border-radius: 5px;}
 `;
