@@ -6,15 +6,18 @@ export default function Ideasform({ handleAddIdea }) {
   const characterLimit = 500;
 
   const handleChange = (event) => {
-    if (characterLimit - event.target.value.length > -1)
+    if (characterLimit - event.target.value.length > -1) {
       setNewIdea(event.target.value);
+    }
   };
   const handleSaveIdea = () => {
     handleAddIdea(newidea);
     setNewIdea("");
   };
 
-  const handledeleteIdea = () => {};
+  const handleDropIdea = () => {
+    setNewIdea("");
+  };
 
   return (
     <>
@@ -37,7 +40,7 @@ export default function Ideasform({ handleAddIdea }) {
         <button type="submit" value="Submit" onClick={handleSaveIdea}>
           speichern
         </button>
-        <button type="reset" value="Reset" onClick={handledeleteIdea}>
+        <button type="reset" value="Reset" onClick={handleDropIdea}>
           verwerfen
         </button>
       </form>
