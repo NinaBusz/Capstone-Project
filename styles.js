@@ -20,12 +20,13 @@ export default createGlobalStyle`
     flex-direction: column;
     align-items: center;
   }
-  textarea {
+  .newIdeaForm__input {
     width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   height: 50vw;
   box-sizing: border-box;
+  
   }
   button {padding: 5px 10px;}
 `;
