@@ -3,9 +3,11 @@ import { useState } from "react";
 
 export default function Ideasform({ handleAddIdea }) {
   const [newidea, setNewIdea] = useState("");
+  const characterLimit = 500;
 
   const handleChange = (event) => {
-    setNewIdea(event.target.value);
+    if (characterLimit - event.target.value.length > -1)
+      setNewIdea(event.target.value);
   };
   const handleSaveIdea = () => {
     handleAddIdea(newidea);
@@ -22,14 +24,16 @@ export default function Ideasform({ handleAddIdea }) {
           className="newIdeaForm__input"
           name="idea"
           type="textarea"
-          id="idea"
           placeholder="Hier tippen..."
           required
-          minLength="2"
-          maxLength="1000"
           onChange={handleChange}
           value={newidea}
         ></textarea>
+        <div className="characterLimit">
+          <small>
+            {characterLimit - newidea.length} von 500 Zeichen übrig.
+          </small>
+        </div>
         <button type="submit" value="Submit" onClick={handleSaveIdea}>
           speichern
         </button>

@@ -7,6 +7,7 @@ import IdeasList from "../components/IdeasList";
 
 export default function Home() {
   const [ideas, setIdeas] = useState([]);
+
   const addIdea = (text) => {
     //console.log(text);
     const date = new Date();

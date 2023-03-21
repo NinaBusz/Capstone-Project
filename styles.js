@@ -26,7 +26,17 @@ export default createGlobalStyle`
   margin: 8px 0;
   height: 50vw;
   box-sizing: border-box;
-  
+  }
+  .newIdeaForm__input:focus, input:focus{
+    outline: none;
+}
+ul {
+  list-style: none;
+}
+li {margin-bottom: 10px;
+margin-top: 10px;}
+  small {
+    font-size: 0.6rem;
   }
   button {padding: 5px 10px;}
 `;

@@ -1,7 +1,7 @@
 export default function Idea({ id, date, text }) {
   return (
     <li>
-      <div>{date}</div>
+      <small>{date}</small>
       <div>{text}</div>
     </li>
   );
