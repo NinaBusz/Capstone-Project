@@ -1,6 +1,6 @@
 import Idea from "../Idea/Idea";
 
-export default function IdeasList({ ideas, handleAddIdea, handleDeleteIdea }) {
+export default function IdeasList({ ideas }) {
   return (
     <>
       <ul className="IdeasList">
