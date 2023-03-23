@@ -46,12 +46,15 @@ export default createGlobalStyle`
 
   /* Form  ______________________ */
   .newIdeaForm__input {
+  box-sizing: border-box;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   height: 200px;
   box-sizing: border-box;
+  border: 1px solid #C3DAE8;
   border-radius: 10px;
+  
   }
   .newIdeaForm__input:focus, input:focus{
     outline: none;
@@ -63,20 +66,27 @@ ul {
 /* IdeasList______________________ */
 
 .ideasList {
+  margin: 0;
+  padding: 0;
 display: flex;
-flex-direction: row;
+flex-direction: column;
 justify-content: flex-start;
 
 }
 .ideasList__newIdea {
-width: 300px;
-margin-bottom: 10px;
-padding: 5px 10px;
+width: 100%;
+padding: 10px;
+padding-top: 20px;
 margin-top: 10px;
 border: 1px solid #C3DAE8;
-border-radius: 5px;
+border-radius: 10px;
 }
-
+.ideasList__newIdea--bottom {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;;
+}
 
 small {
     font-size: 0.6rem;
@@ -98,7 +108,6 @@ small {
     background-color: #0E0F17;
     font-size: 0.6rem;
     color: #C3DAE8;
-    margin-top: 10px;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;

@@ -1,10 +1,11 @@
 import Idea from "../Idea/Idea";
 
 export default function IdeasList({ ideas, handleDeleteIdea }) {
+  const reversedIdeas = [...ideas].reverse();
   return (
     <>
-      <ul className="IdeasList">
-        {ideas.map((idea) => (
+      <ul className="ideasList">
+        {reversedIdeas.map((idea) => (
           <Idea
             key={idea.id}
             id={idea.id}
