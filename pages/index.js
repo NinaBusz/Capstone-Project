@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/router";
-
 import IdeasForm from "../components/IdeasForm";
 
 export default function Home() {

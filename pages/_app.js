@@ -7,11 +7,14 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+
       <Head>
         <title>Capstone Project</title>
       </Head>
-      <Heading>Ideas-App</Heading>
-      <Navbar />
+      <div className="header">
+        <Heading>Ideas-App</Heading>
+        <Navbar />
+      </div>
       <Component {...pageProps} />
     </>
   );

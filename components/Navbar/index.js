@@ -3,12 +3,16 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <>
-      <ul>
+      <ul className="navbar">
         <li>
-          <Link href="/">Home</Link>
+          <Link className="navbar__link" href="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link href="/ideasList">Ideen</Link>
+          <Link className="navbar__link" href="/ideasPage">
+            Ideen
+          </Link>
         </li>
       </ul>
     </>
