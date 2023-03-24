@@ -1,8 +1,8 @@
 export default function Idea({ id, date, text, handleDeleteIdea }) {
   return (
     <li className="ideasList__newIdea">
-      <div>{text}</div>
-      <div className="ideasList__newIdea--bottom">
+      <p>{text}</p>
+      <article className="ideasList__newIdea--bottom">
         <small>{date}</small>
         <button
           className="ideasList__newIdea--deleteButton"
@@ -10,7 +10,7 @@ export default function Idea({ id, date, text, handleDeleteIdea }) {
         >
           Löschen
         </button>
-      </div>
+      </article>
     </li>
   );
 }

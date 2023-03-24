@@ -25,9 +25,9 @@ export default function IdeasPage() {
   };
 
   return (
-    <div className="ideasList">
+    <article className="ideasList">
       Ideen
       <IdeasList ideas={ideas} handleDeleteIdea={deleteIdea} />
-    </div>
+    </article>
   );
 }
