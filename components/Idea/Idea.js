@@ -1,8 +1,16 @@
-export default function Idea({ id, date, text }) {
+export default function Idea({ id, date, text, handleDeleteIdea }) {
   return (
-    <li className="newIdea">
-      <small>{date}</small>
-      <div>{text}</div>
+    <li className="ideasList__newIdea">
+      <p>{text}</p>
+      <article className="ideasList__newIdea--bottom">
+        <small>{date}</small>
+        <button
+          className="ideasList__newIdea--deleteButton"
+          onClick={() => handleDeleteIdea(id)}
+        >
+          Löschen
+        </button>
+      </article>
     </li>
   );
 }

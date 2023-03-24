@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
-import Heading from "../components/Heading";
+import { useRouter } from "next/router";
 import IdeasForm from "../components/IdeasForm";
-import IdeasList from "../components/IdeasList";
 
 export default function Home() {
   const [ideas, setIdeas] = useState([]);
   const initialRender = useRef(true);
+  const router = useRouter();
 
   //localStorage------- zustand sichern in der ideas variable im local storage------
   useEffect(() => {
@@ -38,9 +38,7 @@ export default function Home() {
 
   return (
     <main>
-      <Heading>Ideas-App</Heading>
       <IdeasForm handleAddIdea={addIdea} />
-      <IdeasList ideas={ideas} />
     </main>
   );
 }
