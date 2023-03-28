@@ -168,4 +168,18 @@ border-radius: 10px;
     border: 1px solid #C3DAE8; 
   border-radius: 5px;
   }
+  .projects__deleteButton
+  {
+    background-color: #0E0F17;
+    font-size: 0.6rem;
+    color: #C3DAE8;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  .projects__deleteButton:hover {
+    color: #942841;
+    background-color: #0E0F17;
+    border: 1px solid #942841;
+  }
 `;
