@@ -18,6 +18,12 @@ export default createGlobalStyle`
     flex-direction: column;
     align-items: space-between;
   }
+
+  small {
+    font-size: 0.6rem;
+  }
+
+
   /* Header _______ Heading __ Navbar ______________________ */
    .header{
     display: flex;
@@ -88,9 +94,47 @@ border-radius: 10px;
   justify-content: space-between;;
 }
 
-small {
-    font-size: 0.6rem;
+
+
+
+ /* Projects  ______________________ */
+ .projects {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;}
+
+.projects__listObject {
+    color: #0E0F17;
+    height: 200px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #C3DAE8; 
+  border-radius: 5px;}
+  .projectForm {
+  display: grid;
+   grid-template-areas: "pic pic"
+   "name name"
+   "description description";
   }
+
+  .projectForm__pic {
+    grid-area: pic;
+    display: flex;
+  }
+
+  .projectForm__name {
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+  }
+  .projectForm__description {
+    grid-area: description;
+    display: flex;
+    flex-direction: column;
+  }
+
 
    /* Buttons  ______________________ */
   .primaryButton {
@@ -115,5 +159,13 @@ small {
   .ideasList__newIdea--deleteButton:hover {
     color: #942841;
     background-color: #0E0F17;
+  }
+  .projects__newButton {
+    color: #C3DAE8;
+    height: 200px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #C3DAE8; 
+  border-radius: 5px;
   }
 `;
