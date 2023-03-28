@@ -14,6 +14,11 @@ export default function Navbar() {
             Ideen
           </Link>
         </li>
+        <li>
+          <Link className="navbar__link" href="/projects">
+            Projekte
+          </Link>
+        </li>
       </ul>
     </>
   );
