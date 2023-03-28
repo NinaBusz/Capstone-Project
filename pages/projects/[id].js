@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import placeholder from "./../../assets/placeholder_for_projects.jpg";
-import { useRouter } from "next/router";
+import { useState, useRouter } from "next/router";
 
 export default function Projectform({ projects, handleDeleteProject }) {
   const router = useRouter();

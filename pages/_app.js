@@ -7,12 +7,13 @@ import { useState, useEffect, useRef } from "react";
 export default function App({ Component, pageProps }) {
   const [projects, setProjects] = useState([
     {
-      id: 1,
+      id: 0,
       title: `Projekt 1`,
       url: `/1`,
       image: "url for image",
     },
   ]);
+  const [nextProjectId, setNextProjectId] = useState(1);
   const initialRender = useRef(true);
 
   // updateFunctions to update project state
@@ -38,10 +39,11 @@ export default function App({ Component, pageProps }) {
   // new project in list ________________________________________________________________
   const handleCreateProject = () => {
     const newProject = {
-      id: projects.length + 1,
-      title: `Projekt ${projects.length + 1}`,
-      url: `/projects/${projects.length + 1}`,
+      id: nextProjectId,
+      title: `Projekt ${nextProjectId}`,
+      url: `/projects/${nextProjectId}`,
     };
+    setNextProjectId(nextProjectId + 1);
     setProjects([...projects, newProject]);
   };
   // delete project in list ________________________________________________________________
