@@ -11,7 +11,7 @@ export default function Projekte({ projects, handleCreateProject }) {
         {projects.map((project) => (
           <li key={project.id}>
             <div>
-              <Link href={project.url}>
+              <Link href={`/projects/${project.id}`}>
                 <Image
                   width="200"
                   height="200"
@@ -30,7 +30,7 @@ export default function Projekte({ projects, handleCreateProject }) {
             type="submit"
             onClick={() => handleCreateProject()}
           >
-            Neues Projekt!
+            Neues Projekt erstellen!
           </button>
         </li>
       </ul>

@@ -3,17 +3,10 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Heading from "../components/Heading";
 import { useState, useEffect, useRef } from "react";
+import { nanoid } from "nanoid";
 
 export default function App({ Component, pageProps }) {
-  const [projects, setProjects] = useState([
-    {
-      id: 0,
-      title: `Projekt 1`,
-      url: `/1`,
-      image: "url for image",
-    },
-  ]);
-  const [nextProjectId, setNextProjectId] = useState(1);
+  const [projects, setProjects] = useState([]);
   const initialRender = useRef(true);
 
   // updateFunctions to update project state
@@ -39,17 +32,19 @@ export default function App({ Component, pageProps }) {
   // new project in list ________________________________________________________________
   const handleCreateProject = () => {
     const newProject = {
-      id: nextProjectId,
-      title: `Projekt ${nextProjectId}`,
-      url: `/projects/${nextProjectId}`,
+      id: nanoid(),
+      title: "Neues Projekt",
+      image: "url for image",
+      description: "",
     };
-    setNextProjectId(nextProjectId + 1);
+
     setProjects([...projects, newProject]);
   };
   // delete project in list ________________________________________________________________
   const handleDeleteProject = (id) => {
     setProjects(projects.filter((project) => project.id !== id));
   };
+  // update pattern for projectform _______________________________________________________
 
   return (
     <>
