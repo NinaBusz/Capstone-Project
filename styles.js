@@ -10,8 +10,8 @@ export default createGlobalStyle`
   }
 
   body {
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 15px;
+    margin-left: 15px;
     font-family: system-ui;
     display: flex;
     flex-wrap: wrap;

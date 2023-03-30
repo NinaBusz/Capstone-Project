@@ -4,8 +4,10 @@ import Navbar from "../components/Navbar";
 import Heading from "../components/Heading";
 import { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
   const [projects, setProjects] = useState([]);
   const initialRender = useRef(true);
 
@@ -45,6 +47,14 @@ export default function App({ Component, pageProps }) {
     setProjects(projects.filter((project) => project.id !== id));
   };
   // update pattern for projectform _______________________________________________________
+  const handleSaveProject = (updatedProject) => {
+    const newProjects = projects.map((project) =>
+      project.id === updatedProject.id ? updatedProject : project
+    );
+    setProjects(newProjects);
+    localStorage.setItem("projects", JSON.stringify(newProjects));
+    router.push("/projects");
+  };
 
   return (
     <>
@@ -62,6 +72,7 @@ export default function App({ Component, pageProps }) {
         projects={projects}
         handleCreateProject={handleCreateProject}
         handleDeleteProject={handleDeleteProject}
+        handleSaveProject={handleSaveProject}
       />
     </>
   );

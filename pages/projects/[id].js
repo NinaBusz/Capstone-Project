@@ -3,6 +3,7 @@ import Image from "next/image";
 import placeholder from "./../../assets/placeholder_for_projects.jpg";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Projectform({
   projects,
@@ -11,10 +12,18 @@ export default function Projectform({
 }) {
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
 
-  const foundProject = projects.find((project) => project.id === id); // extract id from url localhost:3000/projects/id <- this is what you need
-  // with id search in projects array and use the found object, to fill the infos in the return of this component
+  const [foundProject, setFoundProject] = useState(null);
+
+  useEffect(() => {
+    const project = projects.find((project) => project.id === id);
+    if (project) {
+      setFoundProject(project);
+    } else {
+      setFoundProject(null);
+    }
+  }, [projects, id]);
+
   if (!foundProject) {
     return <h1>Kein Projekt gefunden!</h1>;
   }
@@ -37,10 +46,15 @@ export default function Projectform({
             name="title"
             type="textarea"
             placeholder="Projektname"
-            //value={title}
-            //onChange={(event) => setTitle(event.target.value)}
+            value={foundProject.title}
+            onChange={(event) =>
+              setFoundProject({ ...foundProject, title: event.target.value })
+            }
           ></textarea>
-          <button className="primaryButton" onClick={() => handleSaveProject()}>
+          <button
+            className="primaryButton"
+            onClick={() => handleSaveProject(foundProject)}
+          >
             Änderungen speichern
           </button>
         </section>
