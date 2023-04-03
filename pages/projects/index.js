@@ -1,39 +1,42 @@
 import Link from "next/link";
 import Image from "next/image";
-import placeholder from "./../../assets/placeholder_for_projects.jpg";
+import placeholder from "./../../assets/placeholder_newproject.png";
 
 export default function Projekte({ projects, handleCreateProject }) {
   return (
-    <article>
-      <p>Projekte</p>
-
-      <ul className="projects">
+    <section>
+      <ul className="projectsarea">
         {projects.map((project) => (
           <li key={project.id}>
-            <div>
+            <article>
               <Link href={`/projects/${project.id}`}>
                 <Image
                   width="200"
                   height="200"
-                  src={placeholder}
-                  alt="placeholder"
-                  className="projects__listObject"
+                  style={{
+                    objectFit: "cover",
+                  }}
+                  src={project.src ? project.src : placeholder}
+                  alt={placeholder}
+                  className="projectsarea__listObject"
                 ></Image>
               </Link>
-              <p className="projects__title">{project.title}</p>
-            </div>
+              <h2>{project.title}</h2>
+            </article>
           </li>
         ))}
         <li>
-          <button
-            className="projects__newButton"
-            type="submit"
-            onClick={() => handleCreateProject()}
-          >
-            Neues Projekt erstellen!
-          </button>
+          <article>
+            <button
+              className="projects__newButton"
+              type="submit"
+              onClick={() => handleCreateProject()}
+            >
+              Neues Projekt erstellen!
+            </button>
+          </article>
         </li>
       </ul>
-    </article>
+    </section>
   );
 }

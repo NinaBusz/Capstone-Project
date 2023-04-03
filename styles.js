@@ -22,7 +22,7 @@ export default createGlobalStyle`
   small {
     font-size: 0.6rem;
   }
-
+p {word-break: break-word}
 
   /* Header _______ Heading __ Navbar ______________________ */
    .header{
@@ -33,7 +33,13 @@ export default createGlobalStyle`
 
   h1{
     color:#FF2B44;
+    word-break: break-word
   }
+  h2{
+    margin: 0;
+    word-break: break-word
+    }
+
    .navbar {
     display: flex;
     flex-direction: row;
@@ -46,7 +52,6 @@ export default createGlobalStyle`
 
    .navbar__link:hover{
     color: #942841;
-
    }
 
 
@@ -98,42 +103,38 @@ border-radius: 10px;
 
 
  /* Projects  ______________________ */
- .projects {
+ 
+ .projectsarea {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;}
-
-.projects__listObject {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  }
+  .projectsarea__listObject {
     color: #0E0F17;
-    height: 200px;
-    width: 200px;
-    margin-right: 10px;
     border: 1px solid #C3DAE8; 
   border-radius: 5px;}
-  .projectForm {
-  display: grid;
-   grid-template-areas: "pic pic"
-   "name name"
-   "description description";
+
+.projectsarea__formLayout {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
   }
 
-  .projectForm__pic {
-    grid-area: pic;
-    display: flex;
-  }
-
-  .projectForm__name {
-    grid-area: name;
-    display: flex;
-    flex-direction: column;
-  }
-  .projectForm__description {
-    grid-area: description;
-    display: flex;
-    flex-direction: column;
-  }
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 100px;
+  box-sizing: border-box;
+  border: 1px solid #C3DAE8;
+  border-radius: 10px;
+}
 
 
    /* Buttons  ______________________ */
@@ -164,22 +165,21 @@ border-radius: 10px;
     color: #C3DAE8;
     height: 200px;
     width: 200px;
-    margin-right: 10px;
     border: 1px solid #C3DAE8; 
-  border-radius: 5px;
+    border-radius: 5px;
   }
-  .projects__deleteButton
-  {
+  .projects__deleteButton{ 
     background-color: #0E0F17;
     font-size: 0.6rem;
-    color: #C3DAE8;
+    color: #942841;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
   }
-  .projects__deleteButton:hover {
-    color: #942841;
-    background-color: #0E0F17;
-    border: 1px solid #942841;
-  }
+  .projectForm__buttons{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;}
+    
 `;
