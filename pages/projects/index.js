@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import placeholder from "./../../assets/placeholder_newproject.png";
 
 export default function Projekte({ projects, handleCreateProject }) {
   return (
@@ -17,7 +16,7 @@ export default function Projekte({ projects, handleCreateProject }) {
                     objectFit: "cover",
                   }}
                   src={project.src ? project.src : placeholder}
-                  alt={placeholder}
+                  alt="Projekt-Vorschau-Bild"
                   className="projectsarea__listObject"
                 ></Image>
               </Link>

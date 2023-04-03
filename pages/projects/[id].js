@@ -1,5 +1,4 @@
 import Image from "next/image";
-import placeholder from "./../../assets/placeholder_newproject.png";
 import { useRouter } from "next/router";
 import { React, useState, useEffect } from "react";
 
