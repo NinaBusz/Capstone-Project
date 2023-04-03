@@ -24,7 +24,7 @@ export default createGlobalStyle`
   }
 p {word-break: break-word}
 
-  /* Header _______ Heading __ Navbar ______________________ */
+  
    .header{
     display: flex;
     flex-direction: row;
@@ -55,7 +55,7 @@ p {word-break: break-word}
    }
 
 
-  /* Form  ______________________ */
+ 
   .newIdeaForm__input {
   box-sizing: border-box;
   width: 100%;
@@ -70,11 +70,11 @@ p {word-break: break-word}
   .newIdeaForm__input:focus, input:focus{
     outline: none;
 }
- /* Lists ______________________ */
+
 ul {
   list-style: none;
 }
-/* IdeasList______________________ */
+
 
 .ideasList {
   margin: 0;
@@ -99,7 +99,7 @@ border-radius: 10px;
   justify-content: space-between;;
 }
 
- /* Projects  ______________________ */
+ 
  .projectsarea {
   margin: 0;
   padding: 0;
@@ -132,7 +132,7 @@ textarea {
   border-radius: 10px;
 }
 
-   /* Buttons  ______________________ */
+
   .primaryButton {
     background-color: #0E0F17;;
     color: #C3DAE8;

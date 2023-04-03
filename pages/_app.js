@@ -28,7 +28,6 @@ export default function App({ Component, pageProps }) {
     localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects]);
 
-  // new project in list ________________________________________________________________
   const handleCreateProject = () => {
     const newProject = {
       id: nanoid(),
@@ -39,11 +38,11 @@ export default function App({ Component, pageProps }) {
 
     setProjects([...projects, newProject]);
   };
-  // delete project in list ________________________________________________________________
+
   const handleDeleteProject = (id) => {
     setProjects(projects.filter((project) => project.id !== id));
   };
-  // update pattern for projectform _______________________________________________________
+
   const handleSaveProject = (updatedProject) => {
     const allowedWebsites = [
       "images.pexels.com/*",
