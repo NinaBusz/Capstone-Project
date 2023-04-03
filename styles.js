@@ -99,11 +99,7 @@ border-radius: 10px;
   justify-content: space-between;;
 }
 
-
-
-
  /* Projects  ______________________ */
- 
  .projectsarea {
   margin: 0;
   padding: 0;
@@ -135,7 +131,6 @@ textarea {
   border: 1px solid #C3DAE8;
   border-radius: 10px;
 }
-
 
    /* Buttons  ______________________ */
   .primaryButton {

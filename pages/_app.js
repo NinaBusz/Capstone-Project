@@ -11,8 +11,6 @@ export default function App({ Component, pageProps }) {
   const [projects, setProjects] = useState([]);
   const initialRender = useRef(true);
 
-  // updateFunctions to update project state
-  // for local storage ________________________________________________________________
   useEffect(() => {
     const projectsFromLocalStorage = JSON.parse(
       localStorage.getItem("projects")
@@ -30,7 +28,6 @@ export default function App({ Component, pageProps }) {
     localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects]);
 
-  //
   // new project in list ________________________________________________________________
   const handleCreateProject = () => {
     const newProject = {
@@ -54,14 +51,13 @@ export default function App({ Component, pageProps }) {
       "media.istockphoto.com/*",
       "images2.imgbox.com/*",
       "thumbs2.imgbox.com/*",
-    ]; // replace with your allowed websites
+    ];
     const regex = new RegExp(
       `^(https?:\\/\\/)?(www\\.)?(${allowedWebsites.join("|")})`,
       "i"
     );
 
     if (!regex.test(updatedProject.src)) {
-      // the image URL does not match the allowed websites
       alert(
         "Invalid image URL. Please enter an URL from the allowed websites. If you uploaded your image on imgbox.com, please right click on the image and copy/paste the image-link!"
       );
@@ -79,7 +75,6 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-
       <Head>
         <title>Capstone Project</title>
       </Head>
