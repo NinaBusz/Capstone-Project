@@ -6,11 +6,12 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    remotePatterns: [
-      // {
-      //   protocol: 'https',
-      //   hostname: 'images.unsplash.com'
-      // },
+    domains: [
+      "images.pexels.com",
+      "images.unsplash.com",
+      "imgbox.com",
+      "images2.imgbox.com",
+      "thumbs2.imgbox.com",
     ],
   },
 };

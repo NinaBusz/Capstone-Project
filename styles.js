@@ -10,15 +10,21 @@ export default createGlobalStyle`
   }
 
   body {
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 15px;
+    margin-left: 15px;
     font-family: system-ui;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: space-between;
   }
-  /* Header _______ Heading __ Navbar ______________________ */
+
+  small {
+    font-size: 0.6rem;
+  }
+p {word-break: break-word}
+
+  
    .header{
     display: flex;
     flex-direction: row;
@@ -27,7 +33,13 @@ export default createGlobalStyle`
 
   h1{
     color:#FF2B44;
+    word-break: break-word
   }
+  h2{
+    margin: 0;
+    word-break: break-word
+    }
+
    .navbar {
     display: flex;
     flex-direction: row;
@@ -40,11 +52,10 @@ export default createGlobalStyle`
 
    .navbar__link:hover{
     color: #942841;
-
    }
 
 
-  /* Form  ______________________ */
+ 
   .newIdeaForm__input {
   box-sizing: border-box;
   width: 100%;
@@ -59,11 +70,11 @@ export default createGlobalStyle`
   .newIdeaForm__input:focus, input:focus{
     outline: none;
 }
- /* Lists ______________________ */
+
 ul {
   list-style: none;
 }
-/* IdeasList______________________ */
+
 
 .ideasList {
   margin: 0;
@@ -88,11 +99,40 @@ border-radius: 10px;
   justify-content: space-between;;
 }
 
-small {
-    font-size: 0.6rem;
+ 
+ .projectsarea {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  }
+  .projectsarea__listObject {
+    color: #0E0F17;
+    border: 1px solid #C3DAE8; 
+  border-radius: 5px;}
+
+.projectsarea__formLayout {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
   }
 
-   /* Buttons  ______________________ */
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 100px;
+  box-sizing: border-box;
+  border: 1px solid #C3DAE8;
+  border-radius: 10px;
+}
+
+
   .primaryButton {
     background-color: #0E0F17;;
     color: #C3DAE8;
@@ -116,4 +156,25 @@ small {
     color: #942841;
     background-color: #0E0F17;
   }
+  .projects__newButton {
+    color: #C3DAE8;
+    height: 200px;
+    width: 200px;
+    border: 1px solid #C3DAE8; 
+    border-radius: 5px;
+  }
+  .projects__deleteButton{ 
+    background-color: #0E0F17;
+    font-size: 0.6rem;
+    color: #942841;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  .projectForm__buttons{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;}
+    
 `;

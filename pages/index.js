@@ -8,7 +8,6 @@ export default function Home() {
   const initialRender = useRef(true);
   const router = useRouter();
 
-  //localStorage------- zustand sichern in der ideas variable im local storage------
   useEffect(() => {
     const savedIdeas = JSON.parse(localStorage.getItem("ideasData"));
     if (savedIdeas) {
@@ -22,8 +21,6 @@ export default function Home() {
     }
     localStorage.setItem("ideasData", JSON.stringify(ideas));
   }, [ideas]);
-
-  // function to IdeasForm to update the text -------
 
   const addIdea = (text) => {
     const date = new Date();

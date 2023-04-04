@@ -26,7 +26,6 @@ export default function IdeasPage() {
 
   return (
     <article className="ideasList">
-      Ideen
       <IdeasList ideas={ideas} handleDeleteIdea={deleteIdea} />
     </article>
   );
