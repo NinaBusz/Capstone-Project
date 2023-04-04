@@ -124,6 +124,18 @@ export default function Projectform({
             ></Image>
             <h2>{foundProject.title}</h2>
             <p>{foundProject.description}</p>
+            <ul className="ideasList">
+              <p>Ideenliste</p>
+              <li>
+                <p>erste idee</p>
+              </li>
+              <li>
+                <p>zweite idee</p>
+              </li>
+              <li>
+                <p>dritte idee</p>
+              </li>
+            </ul>
             <button
               className="primaryButton"
               onClick={() => handleEditButtonClick()}

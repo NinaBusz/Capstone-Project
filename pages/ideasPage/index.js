@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import IdeasList from "../../components/IdeasList";
 
-export default function IdeasPage() {
+export default function IdeasPage({ projects }) {
   const [ideas, setIdeas] = useState([]);
+  const [isMovingIdea, setIsMovingIdea] = useState(false);
   const initialRender = useRef(true);
 
   useEffect(() => {
@@ -24,9 +25,19 @@ export default function IdeasPage() {
     setIdeas(savedIdeas);
   };
 
+  const handleMoveIdeaToggle = (id) => {
+    setIsMovingIdea((prevState) => ({ ...prevState, [id]: !prevState[id] }));
+  };
+
   return (
     <article className="ideasList">
-      <IdeasList ideas={ideas} handleDeleteIdea={deleteIdea} />
+      <IdeasList
+        ideas={ideas}
+        projects={projects}
+        isMovingIdea={isMovingIdea}
+        handleDeleteIdea={deleteIdea}
+        handleMoveIdeaToggle={handleMoveIdeaToggle}
+      />
     </article>
   );
 }

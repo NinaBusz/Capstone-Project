@@ -86,8 +86,7 @@ justify-content: flex-start;
 }
 .ideasList__newIdea {
 width: 100%;
-padding: 10px;
-padding-top: 20px;
+padding: 25px;
 margin-top: 10px;
 border: 1px solid #C3DAE8;
 border-radius: 10px;

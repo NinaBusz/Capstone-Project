@@ -1,6 +1,12 @@
 import Idea from "../Idea/Idea";
 
-export default function IdeasList({ ideas, handleDeleteIdea }) {
+export default function IdeasList({
+  ideas,
+  projects,
+  handleDeleteIdea,
+  handleMoveIdeaToggle,
+  isMovingIdea,
+}) {
   const reversedIdeas = [...ideas].reverse();
   return (
     <>
@@ -11,7 +17,10 @@ export default function IdeasList({ ideas, handleDeleteIdea }) {
             id={idea.id}
             date={idea.date}
             text={idea.text}
+            projects={projects}
+            isMovingIdea={isMovingIdea}
             handleDeleteIdea={handleDeleteIdea}
+            handleMoveIdeaToggle={handleMoveIdeaToggle}
           />
         ))}
       </ul>
