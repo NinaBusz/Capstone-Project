@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import IdeasList from "../../components/IdeasList";
 
-export default function IdeasPage({ projects }) {
+export default function IdeasPage({ projects, setProjects }) {
   const [ideas, setIdeas] = useState([]);
   const [isMovingIdea, setIsMovingIdea] = useState(false);
+  const [selectedProjectForIdea, setSelectedProjectForIdea] = useState("");
   const initialRender = useRef(true);
 
   useEffect(() => {
@@ -28,6 +29,31 @@ export default function IdeasPage({ projects }) {
   const handleMoveIdeaToggle = (id) => {
     setIsMovingIdea((prevState) => ({ ...prevState, [id]: !prevState[id] }));
   };
+  // move project________________________________________________________________
+  const handleSelectedProjectForIdea = (projectID) => {
+    setSelectedProjectForIdea(projectID);
+  };
+  const handleAddIdeaToProject = () => {
+    if (selectedProjectForIdea) {
+      const updatedProjects = projects.map((project) => {
+        if (project.id === selectedProjectForIdea) {
+          const updatedProject = { ...project };
+          if (updatedProject.ideas) {
+            updatedProject.ideas = [...updatedProject.ideas, ...ideas];
+          } else {
+            updatedProject.ideas = [...ideas];
+          }
+          return updatedProject;
+        } else {
+          return project;
+        }
+      });
+      setSelectedProjectForIdea("");
+      setIsMovingIdea(false);
+      localStorage.setItem("projectsData", JSON.stringify(updatedProjects));
+      setProjects(updatedProjects); // update projects state
+    }
+  };
 
   return (
     <article className="ideasList">
@@ -37,6 +63,9 @@ export default function IdeasPage({ projects }) {
         isMovingIdea={isMovingIdea}
         handleDeleteIdea={deleteIdea}
         handleMoveIdeaToggle={handleMoveIdeaToggle}
+        selectedProjectForIdea={selectedProjectForIdea}
+        handleSelectedProjectForIdea={handleSelectedProjectForIdea}
+        handleAddIdeaToProject={handleAddIdeaToProject}
       />
     </article>
   );

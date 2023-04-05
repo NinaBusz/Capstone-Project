@@ -8,6 +8,9 @@ export default function Idea({
   isMovingIdea,
   handleDeleteIdea,
   handleMoveIdeaToggle,
+  selectedProjectForIdea,
+  handleSelectedProjectForIdea,
+  handleAddIdeaToProject,
 }) {
   return (
     <li className="ideasList__newIdea">
@@ -28,7 +31,14 @@ export default function Idea({
           Verschieben
         </button>
       </article>{" "}
-      {isMovingIdea[id] ? <IdeasMoveArea projects={projects} /> : null}
+      {isMovingIdea[id] ? (
+        <IdeasMoveArea
+          projects={projects}
+          selectedProjectForIdea={selectedProjectForIdea}
+          handleSelectedProjectForIdea={handleSelectedProjectForIdea}
+          handleAddIdeaToProject={handleAddIdeaToProject}
+        />
+      ) : null}
     </li>
   );
 }

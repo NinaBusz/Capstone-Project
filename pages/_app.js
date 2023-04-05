@@ -34,6 +34,7 @@ export default function App({ Component, pageProps }) {
       title: "Neues Projekt",
       src: "https://images.unsplash.com/photo-1679345506039-c4228a79c93a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       description: "",
+      ideas: [],
     };
 
     setProjects([...projects, newProject]);
@@ -84,6 +85,7 @@ export default function App({ Component, pageProps }) {
       <Component
         {...pageProps}
         projects={projects}
+        setProjects={setProjects}
         handleCreateProject={handleCreateProject}
         handleDeleteProject={handleDeleteProject}
         handleSaveProject={handleSaveProject}

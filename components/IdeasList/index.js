@@ -6,6 +6,9 @@ export default function IdeasList({
   handleDeleteIdea,
   handleMoveIdeaToggle,
   isMovingIdea,
+  selectedProjectForIdea,
+  handleSelectedProjectForIdea,
+  handleAddIdeaToProject,
 }) {
   const reversedIdeas = [...ideas].reverse();
   return (
@@ -21,6 +24,9 @@ export default function IdeasList({
             isMovingIdea={isMovingIdea}
             handleDeleteIdea={handleDeleteIdea}
             handleMoveIdeaToggle={handleMoveIdeaToggle}
+            selectedProjectForIdea={selectedProjectForIdea}
+            handleSelectedProjectForIdea={handleSelectedProjectForIdea}
+            handleAddIdeaToProject={handleAddIdeaToProject}
           />
         ))}
       </ul>

@@ -1,18 +1,29 @@
-export default function IdeasMoveArea({ projects }) {
+export default function IdeasMoveArea({
+  projects,
+  selectedProjectForIdea,
+  handleSelectedProjectForIdea,
+  handleAddIdeaToProject,
+}) {
   return (
     <article>
       <p>Welchem Projekt möchtest du die Idee zuordnen?</p>
       <ul>
         {projects.map((project) => (
-          <li key={project.id}>
+          <li
+            key={project.id}
+            onClick={() => handleSelectedProjectForIdea(project.id)}
+          >
             <article>
               <p>{project.title}</p>
+              {selectedProjectForIdea === project.id && (
+                <span>Upper project is selected</span>
+              )}
             </article>
           </li>
         ))}
       </ul>
-      <button className="primaryButton">
-        Zur ausgewählten Projekt hinzufügen
+      <button className="primaryButton" onClick={handleAddIdeaToProject}>
+        Jetzt zum ausgewählten Projekt hinzufügen!
       </button>
     </article>
   );

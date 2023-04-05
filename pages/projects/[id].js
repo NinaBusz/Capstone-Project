@@ -124,17 +124,17 @@ export default function Projectform({
             ></Image>
             <h2>{foundProject.title}</h2>
             <p>{foundProject.description}</p>
-            <ul className="ideasList">
+            <ul className="ideasList__newIdea">
               <p>Ideenliste</p>
-              <li>
-                <p>erste idee</p>
-              </li>
-              <li>
-                <p>zweite idee</p>
-              </li>
-              <li>
-                <p>dritte idee</p>
-              </li>
+              {foundProject.ideas.map(
+                (idea) =>
+                  idea && (
+                    <li key={idea.id}>
+                      <small>{idea.date}</small>
+                      <p>{idea.text}</p>
+                    </li>
+                  )
+              )}
             </ul>
             <button
               className="primaryButton"
