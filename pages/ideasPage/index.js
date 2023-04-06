@@ -33,25 +33,25 @@ export default function IdeasPage({ projects, setProjects }) {
   const handleSelectedProjectForIdea = (projectID) => {
     setSelectedProjectForIdea(projectID);
   };
-  const handleAddIdeaToProject = () => {
+  const handleAddIdeaToProject = (idea) => {
     if (selectedProjectForIdea) {
       const updatedProjects = projects.map((project) => {
         if (project.id === selectedProjectForIdea) {
           const updatedProject = { ...project };
           if (updatedProject.ideas) {
-            updatedProject.ideas = [...updatedProject.ideas, ...ideas];
+            updatedProject.ideas = [...updatedProject.ideas, idea];
           } else {
-            updatedProject.ideas = [...ideas];
+            updatedProject.ideas = [idea];
           }
           return updatedProject;
         } else {
           return project;
         }
       });
+      setProjects(updatedProjects);
       setSelectedProjectForIdea("");
       setIsMovingIdea(false);
       localStorage.setItem("projectsData", JSON.stringify(updatedProjects));
-      setProjects(updatedProjects); // update projects state
     }
   };
 

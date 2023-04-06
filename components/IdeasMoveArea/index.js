@@ -15,9 +15,7 @@ export default function IdeasMoveArea({
           >
             <article>
               <p>{project.title}</p>
-              {selectedProjectForIdea === project.id && (
-                <span>Upper project is selected</span>
-              )}
+              {selectedProjectForIdea === project.id && <span>X</span>}
             </article>
           </li>
         ))}

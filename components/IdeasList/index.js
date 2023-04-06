@@ -26,7 +26,7 @@ export default function IdeasList({
             handleMoveIdeaToggle={handleMoveIdeaToggle}
             selectedProjectForIdea={selectedProjectForIdea}
             handleSelectedProjectForIdea={handleSelectedProjectForIdea}
-            handleAddIdeaToProject={handleAddIdeaToProject}
+            handleAddIdeaToProject={() => handleAddIdeaToProject(idea)}
           />
         ))}
       </ul>

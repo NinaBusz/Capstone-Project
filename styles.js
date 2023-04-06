@@ -5,7 +5,7 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-    background-color: #11121B;
+    background-color: #0E0F17;
     color: #C3DAE8;
   }
 
@@ -20,9 +20,11 @@ export default createGlobalStyle`
   }
 
   small {
+    background-color: transparent;
     font-size: 0.6rem;
   }
-p {word-break: break-word}
+p {background-color: transparent;
+  word-break: break-word}
 
   
    .header{
@@ -32,7 +34,7 @@ p {word-break: break-word}
    }
 
   h1{
-    color:#FF2B44;
+    color:#5E68FA;
     word-break: break-word
   }
   h2{
@@ -45,7 +47,7 @@ p {word-break: break-word}
     flex-direction: row;
    }
    .navbar__link {
-    color: #FF2B44;
+    color: #5E68FA;
     text-decoration: none;
     padding: 5px 10px;
    }
@@ -63,7 +65,7 @@ p {word-break: break-word}
   margin: 8px 0;
   height: 200px;
   box-sizing: border-box;
-  border: 1px solid #C3DAE8;
+  border: 2px solid #000F10;
   border-radius: 10px;
   
   }
@@ -85,13 +87,15 @@ justify-content: flex-start;
 
 }
 .ideasList__newIdea {
+  background-color: #181A26;
 width: 100%;
 padding: 25px;
 margin-top: 10px;
-border: 1px solid #C3DAE8;
+border: 2px solid #000F10;
 border-radius: 10px;
 }
 .ideasList__newIdea--bottom {
+  background-color: transparent;
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -109,7 +113,7 @@ border-radius: 10px;
   }
   .projectsarea__listObject {
     color: #0E0F17;
-    border: 1px solid #C3DAE8; 
+    border: 2px solid #000F10; 
   border-radius: 5px;}
 
 .projectsarea__formLayout {
@@ -121,13 +125,14 @@ border-radius: 10px;
   }
 
 textarea {
+  background-color: #181A26;
   box-sizing: border-box;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   height: 100px;
   box-sizing: border-box;
-  border: 1px solid #C3DAE8;
+  border: 2px solid #000F10;
   border-radius: 10px;
 }
 
@@ -148,7 +153,7 @@ textarea {
     font-size: 0.6rem;
     color: #C3DAE8;
     padding: 5px 10px;
-    border: none;
+    border: 2px solid #000F10;
     border-radius: 5px;
   }
   .ideasList__newIdea--deleteButton:hover {
@@ -156,10 +161,11 @@ textarea {
     background-color: #0E0F17;
   }
   .projects__newButton {
+    background-color: #181A26;
     color: #C3DAE8;
     height: 200px;
     width: 200px;
-    border: 1px solid #C3DAE8; 
+    border: 2px solid #000F10; 
     border-radius: 5px;
   }
   .projects__deleteButton{ 
@@ -167,7 +173,7 @@ textarea {
     font-size: 0.6rem;
     color: #942841;
     padding: 5px 10px;
-    border: none;
+    border: 2px solid #000F10;
     border-radius: 5px;
   }
   .projectForm__buttons{
