@@ -11,6 +11,9 @@ export default function IdeasList({
   handleAddIdeaToProject,
 }) {
   const reversedIdeas = [...ideas].reverse();
+  if (ideas.length === 0) {
+    return <p>Noch keine Idee gespeichert!</p>;
+  }
   return (
     <>
       <ul className="ideasList">
