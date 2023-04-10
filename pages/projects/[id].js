@@ -12,8 +12,20 @@ export default function Projectform({
 
   const [foundProject, setFoundProject] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+
   const handleEditButtonClick = () => {
     setIsEditing(true);
+  };
+  const removeIdeaFromProject = (idea) => {
+    const updatedProject = {
+      ...foundProject,
+      ideas: foundProject.ideas.filter((item) => item.id !== idea.id),
+    };
+    setFoundProject(updatedProject);
+    const updatedProjects = projects.map((project) =>
+      project.id === foundProject.id ? updatedProject : project
+    );
+    localStorage.setItem("projects", JSON.stringify(updatedProjects));
   };
 
   useEffect(() => {
@@ -92,13 +104,7 @@ export default function Projectform({
             </form>
             <section className="projectForm__buttons">
               <button
-                className="primaryButton"
-                onClick={() => handleSaveProject(foundProject)}
-              >
-                Änderungen speichern
-              </button>
-              <button
-                className="projects__deleteButton"
+                className="primaryButton__delete"
                 type="submit"
                 onClick={() => {
                   handleDeleteProject(foundProject.id);
@@ -106,6 +112,12 @@ export default function Projectform({
                 }}
               >
                 Projekt löschen
+              </button>
+              <button
+                className="primaryButton"
+                onClick={() => handleSaveProject(foundProject)}
+              >
+                Änderungen speichern
               </button>
             </section>
           </article>
@@ -132,6 +144,12 @@ export default function Projectform({
                     <li className="ideasList__newIdea" key={idea.id}>
                       <small>{idea.date}</small>
                       <p>{idea.text}</p>
+                      <button
+                        className="primaryButton__delete"
+                        onClick={() => removeIdeaFromProject(idea)}
+                      >
+                        Idee entfernen
+                      </button>
                     </li>
                   )
               )}

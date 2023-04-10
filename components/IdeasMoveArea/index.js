@@ -13,9 +13,14 @@ export default function IdeasMoveArea({
             key={project.id}
             onClick={() => handleSelectedProjectForIdea(project.id)}
           >
-            <article>
+            <article className="moveArea">
+              {selectedProjectForIdea === project.id && (
+                <span className="selected">-X|</span>
+              )}
               <p>{project.title}</p>
-              {selectedProjectForIdea === project.id && <span>X</span>}
+              {selectedProjectForIdea === project.id && (
+                <span className="selected">|X-</span>
+              )}
             </article>
           </li>
         ))}

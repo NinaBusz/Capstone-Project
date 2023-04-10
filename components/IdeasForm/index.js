@@ -31,17 +31,19 @@ export default function Ideasform({ ideas, handleAddIdea }) {
           onChange={handleChange}
           value={newidea}
         ></textarea>
-        <div className="characterLimit">
+        <section className="characterLimit">
           <small>
             {characterLimit - newidea.length} von 500 Zeichen übrig.
           </small>
-        </div>
-        <button className="primaryButton" onClick={handleSaveIdea}>
-          speichern
-        </button>
-        <button className="primaryButton" onClick={handleDropIdea}>
-          verwerfen
-        </button>
+        </section>
+        <section className="projectForm__buttons">
+          <button className="primaryButton__delete" onClick={handleDropIdea}>
+            Idee verwerfen
+          </button>
+          <button className="primaryButton" onClick={handleSaveIdea}>
+            Idee speichern
+          </button>
+        </section>
       </form>
     </>
   );

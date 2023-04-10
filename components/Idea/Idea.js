@@ -19,13 +19,13 @@ export default function Idea({
         <small>{date}</small>
 
         <button
-          className="ideasList__newIdea--deleteButton"
+          className="primaryButton__delete"
           onClick={() => handleDeleteIdea(id)}
         >
           Löschen
         </button>
         <button
-          className="ideasList__newIdea--deleteButton"
+          className="primaryButton"
           onClick={() => handleMoveIdeaToggle(id)}
         >
           Verschieben
