@@ -19,6 +19,7 @@ export default function Idea({
         <small>{date}</small>
 
         <button
+          type="button"
           className="primaryButton__delete"
           onClick={() => handleDeleteIdea(id)}
         >
@@ -31,14 +32,14 @@ export default function Idea({
           Verschieben
         </button>
       </article>{" "}
-      {isMovingIdea[id] ? (
+      {isMovingIdea[id] && (
         <IdeasMoveArea
           projects={projects}
           selectedProjectForIdea={selectedProjectForIdea}
           handleSelectedProjectForIdea={handleSelectedProjectForIdea}
           handleAddIdeaToProject={handleAddIdeaToProject}
         />
-      ) : null}
+      )}
     </li>
   );
 }
