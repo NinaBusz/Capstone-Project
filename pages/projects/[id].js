@@ -69,8 +69,8 @@ export default function Projectform({
             ></Image>
             <h2>{foundProject.title}</h2>
             <p>{foundProject.description}</p>
+            <h3>Ideenliste</h3>
             <ul role="list">
-              <p>Ideenliste</p>
               {foundProject.ideas.map(
                 (idea) =>
                   idea && (
@@ -78,6 +78,7 @@ export default function Projectform({
                       <small>{idea.date}</small>
                       <p>{idea.text}</p>
                       <button
+                        type="button"
                         className="primaryButton__delete"
                         onClick={() => removeIdeaFromProject(idea)}
                       >
@@ -88,6 +89,7 @@ export default function Projectform({
               )}
             </ul>
             <button
+              type="button"
               className="primaryButton"
               onClick={() => handleEditButtonClick()}
             >

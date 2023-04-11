@@ -23,8 +23,10 @@ export default createGlobalStyle`
     background-color: transparent;
     font-size: 0.6rem;
   }
-p {background-color: transparent;
-  word-break: break-word}
+p {
+  background-color: transparent;
+  word-break: break-word
+  }
 
    .header{
     display: flex;
@@ -177,5 +179,4 @@ textarea {
 .selected{
   color: #5E68FA;
 }
-
 `;
