@@ -4,7 +4,7 @@ export default function ProjectForm({
   handleSaveProject,
   handleDeleteProject,
   foundProject,
-  setFoundProject,
+  handleFoundProject,
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -25,7 +25,7 @@ export default function ProjectForm({
           placeholder="URL zu Bild..."
           value={foundProject.src}
           onChange={(event) =>
-            setFoundProject({
+            handleFoundProject({
               ...foundProject,
               src: event.target.value,
             })
@@ -42,7 +42,7 @@ export default function ProjectForm({
           placeholder="Projektname..."
           value={foundProject.title}
           onChange={(event) =>
-            setFoundProject({
+            handleFoundProject({
               ...foundProject,
               title: event.target.value,
             })
@@ -60,7 +60,7 @@ export default function ProjectForm({
           placeholder="Beschreibung..."
           value={foundProject.description}
           onChange={(event) =>
-            setFoundProject({
+            handleFoundProject({
               ...foundProject,
               description: event.target.value,
             })

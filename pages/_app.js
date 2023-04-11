@@ -40,8 +40,13 @@ export default function App({ Component, pageProps }) {
     setProjects([...projects, newProject]);
   };
 
+  const handleProjects = (newProjects) => {
+    setProjects(newProjects);
+    localStorage.setItem("projects", JSON.stringify(newProjects));
+  };
+
   const handleDeleteProject = (id) => {
-    setProjects(projects.filter((project) => project.id !== id));
+    handleProjects(projects.filter((project) => project.id !== id));
   };
 
   const handleSaveProject = (updatedProject) => {
@@ -85,7 +90,7 @@ export default function App({ Component, pageProps }) {
       <Component
         {...pageProps}
         projects={projects}
-        setProjects={setProjects}
+        handleProjects={handleProjects}
         handleCreateProject={handleCreateProject}
         handleDeleteProject={handleDeleteProject}
         handleSaveProject={handleSaveProject}

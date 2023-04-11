@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import IdeasList from "../../components/IdeasList";
 
-export default function IdeasPage({ projects, setProjects }) {
+export default function IdeasPage({ projects, handleProjects }) {
   const [ideas, setIdeas] = useState([]);
   const [isMovingIdea, setIsMovingIdea] = useState(false);
   const [selectedProjectForIdea, setSelectedProjectForIdea] = useState("");
@@ -48,7 +48,7 @@ export default function IdeasPage({ projects, setProjects }) {
           return project;
         }
       });
-      setProjects(updatedProjects);
+      handleProjects(updatedProjects);
       setSelectedProjectForIdea("");
       setIsMovingIdea(false);
       localStorage.setItem("projectsData", JSON.stringify(updatedProjects));

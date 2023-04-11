@@ -17,12 +17,17 @@ export default function Projectform({
   const handleEditButtonClick = () => {
     setIsEditing(true);
   };
+  const handleFoundProject = (project) => {
+    setFoundProject(project);
+    localStorage.setItem("projects", JSON.stringify(project));
+  };
+
   const removeIdeaFromProject = (idea) => {
     const updatedProject = {
       ...foundProject,
       ideas: foundProject.ideas.filter((item) => item.id !== idea.id),
     };
-    setFoundProject(updatedProject);
+    handleFoundProject(updatedProject);
     const updatedProjects = projects.map((project) =>
       project.id === foundProject.id ? updatedProject : project
     );
@@ -51,7 +56,7 @@ export default function Projectform({
             handleDeleteProject={handleDeleteProject}
             handleSaveProject={handleSaveProject}
             foundProject={foundProject}
-            setFoundProject={setFoundProject}
+            handleFoundProject={handleFoundProject}
             isEditing={isEditing}
           />
         ) : (
