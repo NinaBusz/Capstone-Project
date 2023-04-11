@@ -20,31 +20,32 @@ export default function Ideasform({ ideas, handleAddIdea }) {
   };
 
   return (
-    <>
-      <form className="newIdeaForm">
-        <label htmlFor="idea">Fixe Idee:</label>
-        <textarea
-          className="newIdeaForm__input"
-          name="idea"
-          type="textarea"
-          placeholder="Hier tippen..."
-          onChange={handleChange}
-          value={newidea}
-        ></textarea>
-        <section className="characterLimit">
-          <small>
-            {characterLimit - newidea.length} von 500 Zeichen übrig.
-          </small>
-        </section>
-        <section className="projectForm__buttons">
-          <button className="primaryButton__delete" onClick={handleDropIdea}>
-            Idee verwerfen
-          </button>
-          <button className="primaryButton" onClick={handleSaveIdea}>
-            Idee speichern
-          </button>
-        </section>
-      </form>
-    </>
+    <form className="newIdeaForm">
+      <label htmlFor="idea">Fixe Idee:</label>
+      <textarea
+        className="newIdeaForm__input"
+        id="idea"
+        name="idea"
+        type="textarea"
+        placeholder="Hier tippen..."
+        onChange={handleChange}
+        value={newidea}
+      ></textarea>
+      <section className="characterLimit">
+        <small>{characterLimit - newidea.length} von 500 Zeichen übrig.</small>
+      </section>
+      <section className="projectForm__buttons">
+        <button
+          type="button"
+          className="primaryButton__delete"
+          onClick={handleDropIdea}
+        >
+          Idee verwerfen
+        </button>
+        <button className="primaryButton" onClick={handleSaveIdea}>
+          Idee speichern
+        </button>
+      </section>
+    </form>
   );
 }

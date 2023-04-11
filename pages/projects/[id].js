@@ -69,7 +69,7 @@ export default function Projectform({
             ></Image>
             <h2>{foundProject.title}</h2>
             <p>{foundProject.description}</p>
-            <ul>
+            <ul role="list">
               <p>Ideenliste</p>
               {foundProject.ideas.map(
                 (idea) =>

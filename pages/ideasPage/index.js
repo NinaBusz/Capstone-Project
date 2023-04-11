@@ -56,17 +56,15 @@ export default function IdeasPage({ projects, setProjects }) {
   };
 
   return (
-    <article className="ideasList">
-      <IdeasList
-        ideas={ideas}
-        projects={projects}
-        isMovingIdea={isMovingIdea}
-        handleDeleteIdea={deleteIdea}
-        handleMoveIdeaToggle={handleMoveIdeaToggle}
-        selectedProjectForIdea={selectedProjectForIdea}
-        handleSelectedProjectForIdea={handleSelectedProjectForIdea}
-        handleAddIdeaToProject={handleAddIdeaToProject}
-      />
-    </article>
+    <IdeasList
+      ideas={ideas}
+      projects={projects}
+      isMovingIdea={isMovingIdea}
+      handleDeleteIdea={deleteIdea}
+      handleMoveIdeaToggle={handleMoveIdeaToggle}
+      selectedProjectForIdea={selectedProjectForIdea}
+      handleSelectedProjectForIdea={handleSelectedProjectForIdea}
+      handleAddIdeaToProject={handleAddIdeaToProject}
+    />
   );
 }

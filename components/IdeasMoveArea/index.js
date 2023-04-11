@@ -6,22 +6,24 @@ export default function IdeasMoveArea({
 }) {
   return (
     <article>
-      <p>Welchem Projekt möchtest du die Idee zuordnen?</p>
-      <ul>
+      <h3>Welchem Projekt möchtest du die Idee zuordnen?</h3>
+      <ul role="list">
         {projects.map((project) => (
-          <li
-            key={project.id}
-            onClick={() => handleSelectedProjectForIdea(project.id)}
-          >
-            <article className="moveArea">
-              {selectedProjectForIdea === project.id && (
-                <span className="selected">-X|</span>
-              )}
-              <p>{project.title}</p>
-              {selectedProjectForIdea === project.id && (
-                <span className="selected">|X-</span>
-              )}
-            </article>
+          <li key={project.id}>
+            <button
+              type="button"
+              onClick={() => handleSelectedProjectForIdea(project.id)}
+            >
+              <article className="moveArea">
+                {selectedProjectForIdea === project.id && (
+                  <span className="selected">-X|</span>
+                )}
+                <p>{project.title}</p>
+                {selectedProjectForIdea === project.id && (
+                  <span className="selected">|X-</span>
+                )}
+              </article>
+            </button>
           </li>
         ))}
       </ul>

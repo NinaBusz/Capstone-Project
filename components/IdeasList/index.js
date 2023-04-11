@@ -15,24 +15,22 @@ export default function IdeasList({
     return <p>Noch keine Idee gespeichert!</p>;
   }
   return (
-    <>
-      <ul className="ideasList">
-        {reversedIdeas.map((idea) => (
-          <Idea
-            key={idea.id}
-            id={idea.id}
-            date={idea.date}
-            text={idea.text}
-            projects={projects}
-            isMovingIdea={isMovingIdea}
-            handleDeleteIdea={handleDeleteIdea}
-            handleMoveIdeaToggle={handleMoveIdeaToggle}
-            selectedProjectForIdea={selectedProjectForIdea}
-            handleSelectedProjectForIdea={handleSelectedProjectForIdea}
-            handleAddIdeaToProject={() => handleAddIdeaToProject(idea)}
-          />
-        ))}
-      </ul>
-    </>
+    <ul role="list" className="ideasList">
+      {reversedIdeas.map((idea) => (
+        <Idea
+          key={idea.id}
+          id={idea.id}
+          date={idea.date}
+          text={idea.text}
+          projects={projects}
+          isMovingIdea={isMovingIdea}
+          handleDeleteIdea={handleDeleteIdea}
+          handleMoveIdeaToggle={handleMoveIdeaToggle}
+          selectedProjectForIdea={selectedProjectForIdea}
+          handleSelectedProjectForIdea={handleSelectedProjectForIdea}
+          handleAddIdeaToProject={() => handleAddIdeaToProject(idea)}
+        />
+      ))}
+    </ul>
   );
 }
