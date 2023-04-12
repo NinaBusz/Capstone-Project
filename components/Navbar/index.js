@@ -1,25 +1,52 @@
+import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
+  const router = useRouter();
   return (
     <>
-      <ul className="navbar">
+      <StyledNavbar>
         <li>
-          <Link className="navbar__link" href="/">
+          <StyledNavbar__Link
+            href="/"
+            className={router.pathname === "/" ? "active" : ""}
+          >
             Home
-          </Link>
+          </StyledNavbar__Link>
         </li>
         <li>
-          <Link className="navbar__link" href="/ideasPage">
+          <StyledNavbar__Link
+            href="/ideasPage"
+            className={router.pathname === "/ideasPage" ? "active" : ""}
+          >
             Ideen
-          </Link>
+          </StyledNavbar__Link>
         </li>
         <li>
-          <Link className="navbar__link" href="/projects">
+          <StyledNavbar__Link
+            href="/projects"
+            className={router.pathname.includes("/projects") ? "active" : ""}
+          >
             Projekte
-          </Link>
+          </StyledNavbar__Link>
         </li>
-      </ul>
+      </StyledNavbar>
     </>
   );
 }
+
+const StyledNavbar = styled.ul`
+  display: flex;
+  flex-direction: row;
+`;
+
+const StyledNavbar__Link = styled(Link)`
+  text-decoration: none;
+  padding: 5px 10px;
+  line-height: 30px;
+  &.active {
+    text-decoration: 2px #3cfb6a underline;
+    text-decoration-style: wavy;
+  }
+`;

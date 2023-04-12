@@ -43,16 +43,6 @@ p {
     word-break: break-word
     }
 
-   .navbar {
-    display: flex;
-    flex-direction: row;
-   }
-   .navbar__link {
-    color: #C3DAE8;
-    text-decoration: none;
-    padding: 5px 10px;
-   }
-
  
   .newIdeaForm__input {
   box-sizing: border-box;
