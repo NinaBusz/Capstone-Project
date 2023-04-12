@@ -15,7 +15,11 @@ export default function Projekte({ projects, handleCreateProject }) {
                   style={{
                     objectFit: "cover",
                   }}
-                  src={project.src ? project.src : placeholder}
+                  src={
+                    project.src
+                      ? project.src
+                      : "https://images.pexels.com/photos/1214394/pexels-photo-1214394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  }
                   alt="Projekt-Vorschau-Bild"
                   className="projectsarea__listObject"
                 ></Image>
