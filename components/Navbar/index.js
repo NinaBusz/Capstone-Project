@@ -46,7 +46,8 @@ const StyledNavbar__Link = styled(Link)`
   padding: 5px 10px;
   line-height: 30px;
   &.active {
-    text-decoration: 2px #3cfb6a underline;
-    text-decoration-style: wavy;
+    text-decoration: 2px #f0b065 underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
   }
 `;

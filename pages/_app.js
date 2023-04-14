@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Heading from "../components/Heading";
+import styled from "styled-components";
 import { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/router";
@@ -32,7 +33,7 @@ export default function App({ Component, pageProps }) {
     const newProject = {
       id: nanoid(),
       title: "Neues Projekt",
-      src: "https://images.pexels.com/photos/1214394/pexels-photo-1214394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      src: "/NewIdea_placeholder.png",
       description: "",
       ideas: [],
     };
@@ -81,12 +82,12 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Head>
-        <title>Capstone Project</title>
+        <title>Ideas-App</title>
       </Head>
-      <div className="header">
-        <Heading>Ideas-App</Heading>
+      <StyledHeader>
+        <Heading />
         <Navbar />
-      </div>
+      </StyledHeader>
       <Component
         {...pageProps}
         projects={projects}
@@ -95,6 +96,20 @@ export default function App({ Component, pageProps }) {
         handleDeleteProject={handleDeleteProject}
         handleSaveProject={handleSaveProject}
       />
+      <StyledFooter />
     </>
   );
 }
+const StyledHeader = styled.section`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const StyledFooter = styled.section`
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  color: white;
+`;

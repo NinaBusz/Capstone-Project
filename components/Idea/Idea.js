@@ -1,4 +1,9 @@
 import IdeasMoveArea from "./../IdeasMoveArea";
+import styled from "styled-components";
+import {
+  StyledPrimaryButton,
+  StyledPrimaryButton__Delete,
+} from "./../Buttons/index.js";
 
 export default function Idea({
   id,
@@ -13,33 +18,55 @@ export default function Idea({
   handleAddIdeaToProject,
 }) {
   return (
-    <li className="ideasList__newIdea">
+    <StyledIdeasList>
       <p>{text}</p>
-      <article className="ideasList__newIdea--bottom">
+      <StyledIdeasButtonArea>
         <small>{date}</small>
 
-        <button
+        <StyledPrimaryButton__Delete
           type="button"
-          className="primaryButton__delete"
           onClick={() => handleDeleteIdea(id)}
         >
           Löschen
-        </button>
-        <button
-          className="primaryButton"
-          onClick={() => handleMoveIdeaToggle(id)}
-        >
+        </StyledPrimaryButton__Delete>
+        <StyledPrimaryButton onClick={() => handleMoveIdeaToggle(id)}>
           Verschieben
-        </button>
-      </article>{" "}
-      {isMovingIdea[id] && (
+        </StyledPrimaryButton>
+      </StyledIdeasButtonArea>{" "}
+      <IdeasMoveAreaWrapper isMovingIdea={isMovingIdea[id]}>
         <IdeasMoveArea
           projects={projects}
           selectedProjectForIdea={selectedProjectForIdea}
           handleSelectedProjectForIdea={handleSelectedProjectForIdea}
           handleAddIdeaToProject={handleAddIdeaToProject}
         />
-      )}
-    </li>
+      </IdeasMoveAreaWrapper>
+    </StyledIdeasList>
   );
 }
+
+const StyledIdeasList = styled.li`
+  background-color: #181a26;
+  width: 100%;
+  padding: 25px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+`;
+
+const IdeasMoveAreaWrapper = styled.article`
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  height: ${(props) => (props.isMovingIdea ? "300px" : "0")};
+  transition: height 0.4s ease-in-out;
+  overflow: ${(props) => (props.isMovingIdea ? "scroll" : "hidden")};
+`;
+
+export const StyledIdeasButtonArea = styled.article`
+  background-color: transparent;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;

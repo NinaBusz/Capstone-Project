@@ -1,4 +1,9 @@
 import { useRouter } from "next/router";
+import styled from "styled-components";
+import {
+  StyledPrimaryButton,
+  StyledPrimaryButton__Delete,
+} from "/components/Buttons";
 
 export default function ProjectForm({
   handleSaveProject,
@@ -11,7 +16,7 @@ export default function ProjectForm({
   return (
     <article>
       <h3>Projekt anpassen:</h3>
-      <form className="projectsarea__formLayout">
+      <StyledProjectForm>
         <label htmlFor="project__image">Projektbild:</label>
         <small>
           Du kannst ein Bild auf https://imgbox.com/ uploaden, oder du suchst
@@ -67,9 +72,9 @@ export default function ProjectForm({
           }
           maxLength="100"
         ></textarea>
-      </form>
-      <section className="projectForm__buttons">
-        <button
+      </StyledProjectForm>
+      <StyledProjectForm__Buttons>
+        <StyledPrimaryButton__Delete
           className="primaryButton__delete"
           type="button"
           onClick={() => {
@@ -78,14 +83,29 @@ export default function ProjectForm({
           }}
         >
           Projekt löschen
-        </button>
-        <button
+        </StyledPrimaryButton__Delete>
+        <StyledPrimaryButton
           className="primaryButton"
           onClick={() => handleSaveProject(foundProject)}
         >
           Änderungen speichern
-        </button>
-      </section>
+        </StyledPrimaryButton>
+      </StyledProjectForm__Buttons>
     </article>
   );
 }
+
+const StyledProjectForm = styled.form`
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
+`;
+
+const StyledProjectForm__Buttons = styled.section`
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;

@@ -29,7 +29,7 @@ export default function IdeasPage({ projects, handleProjects }) {
   const handleMoveIdeaToggle = (id) => {
     setIsMovingIdea((prevState) => ({ ...prevState, [id]: !prevState[id] }));
   };
-  // move project________________________________________________________________
+
   const handleSelectedProjectForIdea = (projectID) => {
     setSelectedProjectForIdea(projectID);
   };

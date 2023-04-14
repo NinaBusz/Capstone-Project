@@ -1,5 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import styled from "styled-components";
+import {
+  StyledPrimaryButton,
+  StyledPrimaryButton__Delete,
+} from "./../Buttons/index.js";
 
 export default function Ideasform({ ideas, handleAddIdea }) {
   const [newidea, setNewIdea] = useState("");
@@ -20,32 +25,54 @@ export default function Ideasform({ ideas, handleAddIdea }) {
   };
 
   return (
-    <form className="newIdeaForm">
-      <label htmlFor="idea">Fixe Idee:</label>
-      <textarea
-        className="newIdeaForm__input"
+    <form>
+      <label htmlFor="idea">
+        <StyledHiddenHeading>Fixe Idee:</StyledHiddenHeading>
+      </label>
+      <StyledNewIdeaForm__Input
         id="idea"
         name="idea"
         type="textarea"
-        placeholder="Hier tippen..."
+        placeholder="Neue Idee? Halte sie hier fest!"
         onChange={handleChange}
         value={newidea}
-      ></textarea>
-      <section className="characterLimit">
-        <small>{characterLimit - newidea.length} von 500 Zeichen übrig.</small>
-      </section>
-      <section className="projectForm__buttons">
-        <button
-          type="button"
-          className="primaryButton__delete"
-          onClick={handleDropIdea}
-        >
+        spellCheck="false"
+      ></StyledNewIdeaForm__Input>
+      <small>{characterLimit - newidea.length} von 500 Zeichen übrig.</small>
+      <StyledButtonSection>
+        <StyledPrimaryButton__Delete type="button" onClick={handleDropIdea}>
           Idee verwerfen
-        </button>
-        <button className="primaryButton" onClick={handleSaveIdea}>
+        </StyledPrimaryButton__Delete>
+        <StyledPrimaryButton onClick={handleSaveIdea}>
           Idee speichern
-        </button>
-      </section>
+        </StyledPrimaryButton>
+      </StyledButtonSection>
     </form>
   );
 }
+
+const StyledNewIdeaForm__Input = styled.textarea`
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 200px;
+  box-sizing: border-box;
+  border: 2px solid #ffb065;
+  border-radius: 10px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const StyledButtonSection = styled.section`
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const StyledHiddenHeading = styled.h3`
+  display: none;
+`;

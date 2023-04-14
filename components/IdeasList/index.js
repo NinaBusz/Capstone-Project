@@ -1,4 +1,5 @@
 import Idea from "../Idea/Idea";
+import styled from "styled-components";
 
 export default function IdeasList({
   ideas,
@@ -12,10 +13,15 @@ export default function IdeasList({
 }) {
   const reversedIdeas = [...ideas].reverse();
   if (ideas.length === 0) {
-    return <p>Noch keine Idee gespeichert!</p>;
+    return (
+      <StyledIdeasList>
+        <h3>Noch keine Idee gespeichert! </h3>
+        <StyledH2>D-:</StyledH2>
+      </StyledIdeasList>
+    );
   }
   return (
-    <ul role="list" className="ideasList">
+    <StyledIdeasList role="list">
       {reversedIdeas.map((idea) => (
         <Idea
           key={idea.id}
@@ -31,6 +37,18 @@ export default function IdeasList({
           handleAddIdeaToProject={() => handleAddIdeaToProject(idea)}
         />
       ))}
-    </ul>
+    </StyledIdeasList>
   );
 }
+
+const StyledIdeasList = styled.ul`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+`;
+const StyledH2 = styled.h2`
+  margin: 0;
+  word-break: break-word;
+  color: #ffe175;
+`;
