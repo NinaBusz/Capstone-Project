@@ -1,5 +1,11 @@
 import Image from "next/image";
+import styled from "styled-components";
 import ProjectForm from "../../components/ProjectForm";
+import {
+  StyledPrimaryButton,
+  StyledPrimaryButton__Delete,
+} from "./../../components/Buttons/index.js";
+import { StyledIdeasButtonArea } from "/components/Idea/Idea.js";
 import { useRouter } from "next/router";
 import { React, useState, useEffect } from "react";
 
@@ -49,7 +55,7 @@ export default function Projectform({
 
   return (
     <>
-      <article className="projectsarea">
+      <StyledProjectPage>
         {isEditing ? (
           <ProjectForm
             projects={projects}
@@ -60,9 +66,9 @@ export default function Projectform({
             isEditing={isEditing}
           />
         ) : (
-          <article className="projectsarea">
+          <StyledProjectPage>
             {" "}
-            <Image
+            <StyledProjectDetailImage
               width="300"
               height="300"
               style={{
@@ -71,38 +77,75 @@ export default function Projectform({
               }}
               src={foundProject.src ? foundProject.src : placeholder}
               alt="Dein Projektbild"
-            ></Image>
-            <h2>{foundProject.title}</h2>
+            ></StyledProjectDetailImage>
+            <StyledH2>{foundProject.title}</StyledH2>
             <p>{foundProject.description}</p>
-            <h3>Ideenliste</h3>
-            <ul role="list">
+            {foundProject.ideas.length > 0 && <h3>Ideen zum Projekt:</h3>}
+            <StyledIdeasList role="list">
               {foundProject.ideas.map(
                 (idea) =>
                   idea && (
-                    <li className="ideasList__newIdea" key={idea.id}>
-                      <small>{idea.date}</small>
+                    <StyledListedIdea key={idea.id}>
                       <p>{idea.text}</p>
-                      <button
-                        type="button"
-                        className="primaryButton__delete"
-                        onClick={() => removeIdeaFromProject(idea)}
-                      >
-                        Idee entfernen
-                      </button>
-                    </li>
+                      <StyledIdeasButtonArea>
+                        <small>{idea.date}</small>
+                        <StyledPrimaryButton__Delete
+                          type="button"
+                          onClick={() => removeIdeaFromProject(idea)}
+                        >
+                          Idee entfernen
+                        </StyledPrimaryButton__Delete>
+                      </StyledIdeasButtonArea>
+                    </StyledListedIdea>
                   )
               )}
-            </ul>
-            <button
+            </StyledIdeasList>
+            <StyledPrimaryButton
               type="button"
-              className="primaryButton"
               onClick={() => handleEditButtonClick()}
             >
               Bearbeitungsmodus aktivieren
-            </button>
-          </article>
+            </StyledPrimaryButton>
+          </StyledProjectPage>
         )}
-      </article>
+      </StyledProjectPage>
     </>
   );
 }
+const StyledProjectPage = styled.article`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const StyledIdeasList = styled.ul`
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+`;
+const StyledListedIdea = styled.li`
+  background-color: #181a26;
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+`;
+const StyledProjectDetailImage = styled(Image)`
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  objectfit: "cover";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledH2 = styled.h2`
+  padding-top: 10px;
+  border-radius: 10px;
+`;

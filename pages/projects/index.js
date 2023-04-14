@@ -1,45 +1,58 @@
 import Link from "next/link";
+import styled from "styled-components";
 import Image from "next/image";
 
 export default function Projekte({ projects, handleCreateProject }) {
   return (
     <section>
-      <ul className="projectsarea">
+      <StyledProjectsarea>
         {projects.map((project) => (
           <li key={project.id}>
-            <article>
-              <Link href={`/projects/${project.id}`}>
-                <Image
-                  width="200"
-                  height="200"
-                  style={{
-                    objectFit: "cover",
-                  }}
-                  src={
-                    project.src
-                      ? project.src
-                      : "https://images.pexels.com/photos/1214394/pexels-photo-1214394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  }
-                  alt="Projekt-Vorschau-Bild"
-                  className="projectsarea__listObject"
-                ></Image>
-              </Link>
-              <h2>{project.title}</h2>
-            </article>
+            <Link href={`/projects/${project.id}`}>
+              <StyledProjectImage
+                width="200"
+                height="200"
+                style={{
+                  objectFit: "cover",
+                }}
+                src={project.src ? project.src : "/NewIdea_placeholder.png"}
+                alt="Projekt-Vorschau-Bild"
+              ></StyledProjectImage>
+            </Link>
+            <h2>{project.title}</h2>
           </li>
         ))}
         <li>
-          <article>
-            <button
-              className="projects__newButton"
-              type="submit"
-              onClick={() => handleCreateProject()}
-            >
-              Neues Projekt erstellen!
-            </button>
-          </article>
+          <StyledNewProjectButton
+            type="submit"
+            onClick={() => handleCreateProject()}
+          >
+            Neues Projekt erstellen!
+          </StyledNewProjectButton>
         </li>
-      </ul>
+      </StyledProjectsarea>
     </section>
   );
 }
+
+const StyledProjectImage = styled(Image)`
+  margin-top: 30px;
+  border: 2px solid #181a26;
+  border-radius: 5px;
+`;
+const StyledNewProjectButton = styled.button`
+  background-color: #181a26;
+  color: #c3dae8;
+  height: 200px;
+  width: 200px;
+  margin-top: 30px;
+  border: 1px solid #ffe175;
+  border-radius: 5px;
+`;
+export const StyledProjectsarea = styled.ul`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
