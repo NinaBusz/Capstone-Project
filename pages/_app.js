@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }) {
     const newProject = {
       id: nanoid(),
       title: "Neues Projekt",
-      src: "/NewIdea_placeholder.png",
+      src: "https://images2.imgbox.com/02/af/4KCd8NDB_o.png",
       description: "",
       ideas: [],
     };
