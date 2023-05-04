@@ -82,7 +82,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Head>
-        <title>Ideas-App</title>
+        <title>Ideas App</title>
       </Head>
       <StyledHeader>
         <Heading />
